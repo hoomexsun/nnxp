@@ -1,0 +1,6 @@
+jiwer
+matplotlib
+numpy
+seaborn
+tensorboard
+torch

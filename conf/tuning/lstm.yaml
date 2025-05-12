@@ -1,0 +1,29 @@
+xlit: lstm
+xlit_conf:
+    langx: ben
+    langy: mni
+    token_type: char
+    db_file: db/transcribed.txt
+    max_len: 100
+    val_ratio: 0.25
+
+    # Model
+    idim: 64
+    odim: 47
+    hidden_dim: 128
+    embed_dim: 128
+    nlayers: 2
+    dropout: 0.25
+
+    # Optimizer
+    optim: adam
+    optim_conf:
+        lr: 1.0e-3
+        eps: 1.0e-6
+        weight_decay: 0.0
+
+    # Training
+    max_epoch: 50
+    batch_size: 32
+    keep_nbest_models: 5
+    seed: 248
