@@ -67,10 +67,52 @@ xlit_project/
 │   └── xlit_task.py                # Core XlitTask class for training/inference
 │
 ├── build.ipynb                     # Notebook to build configs and source structure
-├── nb_train.ipynb                 # Training Notebook [Attention]
-├── nb_train_cnn.ipynb             # Training Notebook [CNN-GRU]
-├── nb_train_lstm.ipynb            # Training Notebook [LSTM]
-├── nb_train_transformer.ipynb     # Training Notebook [Transformer]
+├── nb_infer.ipynb                  # Inference Notebook
+├── nb_train.ipynb                  # Training Notebook [Attention]
+├── nb_train_cnn.ipynb              # Training Notebook [CNN-GRU]
+├── nb_train_lstm.ipynb             # Training Notebook [LSTM]
+├── nb_train_transformer.ipynb      # Training Notebook [Transformer]
 ├── README.md                       # Project description and usage
 └── requirements.txt                # Python dependencies
 ```
+
+## Results
+
+| Model     | Best CER             | Best WA           |
+| --------- | -------------------- | ----------------- |
+| Attention | 0.0084 (Epoch 34/49) | 0.9501 (Epoch 43) |
+| LSTM      | 0.0173 (Epoch 47)    | 0.9129 (Epoch 47) |
+
+The decode data are here
+
+- [Attention Model Decoding](./exp/xlit_train_attention_char_ben_mni/decode/wa.best.decode)
+
+- [LSTM Model Decoding](./exp/xlit_train_lstm_char_ben_mni/decode/wa.best.decode)
+
+## Plots
+
+### Loss Plots
+
+Attention Model
+
+![attention loss](./exp/xlit_train_attention_char_ben_mni/images/losses.png)
+
+LSTM Model
+
+![lstm loss](./exp/xlit_train_lstm_char_ben_mni/images/losses.png)
+
+### Character Error Rate Plots
+
+Attention Model
+![attention cer](./exp/xlit_train_attention_char_ben_mni/images/cer.png)
+
+LSTM Model
+![lstm cer](./exp/xlit_train_lstm_char_ben_mni/images/cer.png)
+
+### Word Accuracy Plots
+
+Attention Model
+![attention wa](./exp/xlit_train_attention_char_ben_mni/images/wa.png)
+
+LSTM Model
+![lstm wa](./exp/xlit_train_lstm_char_ben_mni/images/wa.png)
