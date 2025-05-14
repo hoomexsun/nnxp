@@ -10,11 +10,11 @@ xlit_conf:
     # Model
     idim: 64
     odim: 48
-    embed_dim: 256      
-    num_heads: 4        
-    num_encoder_layers: 4  
-    num_decoder_layers: 4  
-    dim_feedforward: 512   
+    embed_dim: 256
+    num_heads: 4 
+    num_encoder_layers: 4
+    num_decoder_layers: 4 
+    dim_feedforward: 512 
     dropout: 0.1
 
     # Optimizer
@@ -26,6 +26,6 @@ xlit_conf:
 
     # Training
     max_epoch: 20
-    batch_size: 32
+    batch_size: 16
     keep_nbest_models: 5
     seed: 248

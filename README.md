@@ -2,6 +2,20 @@
 
 End-to-End Neural based Transliteration Pipeline
 
+- The pipeline heavily adopts strategy from [kaldi](www.kaldi_asr.org) and [espnet](https://github.com/espnet/espnet) without too much over-abstraction.
+
+Tools and Technology used
+
+```bash
+python: 3.10.16
+
+# Deep Learning Framework
+pytorch: 2.6
+
+# GPU
+Quadro RTX 5000 (16GB VRAM)
+```
+
 **More details will be added later.**
 
 ## Directory structure
@@ -50,7 +64,7 @@ xlit_project/
 │   │   ├── __init__.py
 │   │   ├── attn.py                 # Attention model
 │   │   ├── base.py                 # Base model class
-│   │   ├── cnn.py                  # CNN-GRU model
+│   │   ├── cnn.py                  # CNN-Attention model
 │   │   ├── lstm.py                 # LSTM model
 │   │   ├── positional_encoding.py  # Positional encoding utility
 │   │   └── transformers.py         # Transformer model
@@ -76,12 +90,13 @@ xlit_project/
 └── requirements.txt                # Python dependencies
 ```
 
-## Results
+### Model Performance Summary
 
-| Model     | Best CER             | Best WA           |
-| --------- | -------------------- | ----------------- |
-| Attention | 0.0084 (Epoch 34/49) | 0.9501 (Epoch 43) |
-| LSTM      | 0.0173 (Epoch 47)    | 0.9129 (Epoch 47) |
+| Model       | Best CER (Epoch) | Best WA (Epoch) | # Parameters | Training Time | # Epochs | Avg. Time/Epoch |
+| ----------- | ---------------- | --------------- | ------------ | ------------- | -------- | --------------- |
+| Attention   | 0.0084 (34/49)   | 0.9501 (43)     | 653,231      | 04:37:18      | 50       | 00:05:33        |
+| LSTM        | 0.0173 (47)      | 0.9129 (47)     | 542,639      | 02:49:25      | 50       | 00:03:23        |
+| Transformer | 0.0080 (19)      | 0.9534 (19)     | 5,313,071    | 20:05:50      | 20       | 01:00:18        |
 
 The decode data are here
 
@@ -89,30 +104,73 @@ The decode data are here
 
 - [LSTM Model Decoding](./exp/xlit_train_lstm_char_ben_mni/decode/wa.best.decode)
 
+- [Transformer Model Decoding](./exp/xlit_train_transformer_char_ben_mni/decode/wa.best.decode)
+
 ## Plots
 
 ### Loss Plots
 
-Attention Model
+- Attention Model
 
 ![attention loss](./exp/xlit_train_attention_char_ben_mni/images/losses.png)
 
-LSTM Model
+- LSTM Model
 
 ![lstm loss](./exp/xlit_train_lstm_char_ben_mni/images/losses.png)
 
+- Transformer Model
+
+![transformer loss](./exp/xlit_train_transformer_char_ben_mni/images/losses.png)
+
 ### Character Error Rate Plots
 
-Attention Model
+- Attention Model
+
 ![attention cer](./exp/xlit_train_attention_char_ben_mni/images/cer.png)
 
-LSTM Model
+- LSTM Model
+
 ![lstm cer](./exp/xlit_train_lstm_char_ben_mni/images/cer.png)
+
+- Transformer Model
+
+![transformer cer](./exp/xlit_train_transformer_char_ben_mni/images/cer.png)
 
 ### Word Accuracy Plots
 
-Attention Model
+- Attention Model
+
 ![attention wa](./exp/xlit_train_attention_char_ben_mni/images/wa.png)
 
-LSTM Model
+- LSTM Model
+
 ![lstm wa](./exp/xlit_train_lstm_char_ben_mni/images/wa.png)
+
+- Transformer Model
+
+![transformer wa](./exp/xlit_train_transformer_char_ben_mni/images/wa.png)
+
+## FAQs
+
+Q. How to replicate training?
+A. Check out trainig notebooks.
+
+- [Training Attention Model](./nb_train.ipynb)
+- [Training LSTM Model](./nb_train_lstm.ipynb)
+- [Training Transformer Model](./nb_train_transformer.ipynb)
+
+Q. How to train on new languages?
+A. Add you parallel data in db and add the location `db_file: db/<db_filename>` in your config yaml file. The format of content is simple `<src_word>\t<target_word>`.
+
+Q. How to add new models?
+A. Add configuration in `conf/tuning` and inherit `XlitModel` from `src.models/base/py`.
+
+Q. How to do inference on existing model?
+A. Check out inference notebook: [Inference Notebook](./nb_infer.ipynb).
+
+## See more
+
+- [Meetei/Meitei Mayek Keyboard for Windows](https://github.com/hoomexsun/mm_keyboard).
+- [Khutsem Tool](https://https://github.com/hoomexsun/khutsem).
+- [End-to-End Neural based Transliteration Pipeline](https://github.com/hoomexsun/nnxp).
+- [Rule based Manipuri Machine Transliteration](https://github.com/hoomexsun/xlit).

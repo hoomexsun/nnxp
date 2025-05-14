@@ -9,7 +9,7 @@ xlit_conf:
 
     # Model
     idim: 64
-    odim: 47
+    odim: 48
     hidden_dim: 128
     embed_dim: 128
     nlayers: 2

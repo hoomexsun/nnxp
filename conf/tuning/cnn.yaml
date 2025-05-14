@@ -1,4 +1,5 @@
-xlit: cnn
+# conf/tuning/cnn_attn.yaml
+xlit: cnn_attn
 xlit_conf:
     langx: ben
     langy: mni
@@ -8,11 +9,11 @@ xlit_conf:
     val_ratio: 0.25
 
     # Model
-    idim: 64            
-    odim: 47    
-    embed_dim: 128       
-    hidden_dim: 256      
-    kernel_size: 3       # kernel size for Conv1D
+    idim: 64
+    odim: 47
+    embed_dim: 128
+    hidden_dim: 256
+    kernel_size: 3
     dropout: 0.25
     teacher_forcing_ratio: 0.5
 
@@ -24,7 +25,8 @@ xlit_conf:
         weight_decay: 0.0
 
     # Training
-    max_epoch: 5
+    max_epoch: 50
     batch_size: 32
     keep_nbest_models: 5
     seed: 248
+

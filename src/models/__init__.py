@@ -1,13 +1,13 @@
 from .attn import AttnSeq2Seq
 from .lstm import LSTMSeq2Seq
-from .cnn import CNNSeq2Seq
-from .transformers import TransformerSeq2Seq
+from .cnn import CNNSeq2SeqAttn
+from .transformer import TransformerSeq2Seq
 
 MODEL_REGISTRY = dict(
     attention=AttnSeq2Seq,
     lstm=LSTMSeq2Seq,
-    cnn=CNNSeq2Seq,
-    transformers=TransformerSeq2Seq,
+    cnn_attn=CNNSeq2SeqAttn,
+    transformer=TransformerSeq2Seq,
 )
 
 
