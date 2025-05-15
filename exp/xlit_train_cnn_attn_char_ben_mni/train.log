@@ -1,0 +1,473 @@
+2025-05-14 13:56:50,765 (xlit_task:132)  INFO: Data Information:
+2025-05-14 13:56:50,767 (xlit_task:133)  INFO: Batch size: 32
+2025-05-14 13:56:50,768 (xlit_task:134)  INFO: [Training] Data size: 44098 to 1379 batches
+2025-05-14 13:56:50,769 (xlit_task:137)  INFO: [Validation] Data size: 14699 to 460 batches
+2025-05-14 13:56:50,770 (xlit_task:140)  INFO: Token information
+2025-05-14 13:56:50,771 (xlit_task:141)  INFO: [ben] Tokenizer loaded with 64 tokens.
+2025-05-14 13:56:50,772 (xlit_task:144)  INFO: [mni] Tokenizer loaded with 47 tokens.
+2025-05-14 13:56:50,773 (xlit_task:150)  INFO: Model information:
+CNNSeq2SeqAttn(
+  (encoder): ConvEncoder(
+    (embedding): Embedding(64, 128)
+    (pe): PositionalEncoding()
+    (conv): Conv1d(128, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+    (dropout): Dropout(p=0.25, inplace=False)
+  )
+  (decoder): ConvDecoder(
+    (embedding): Embedding(47, 128)
+    (pe): PositionalEncoding()
+    (conv): Conv1d(128, 512, kernel_size=(3,), stride=(1,), padding=(1,))
+    (attn): ConvAttention()
+    (fc_out): Linear(in_features=512, out_features=47, bias=True)
+    (dropout): Dropout(p=0.25, inplace=False)
+  )
+)
+2025-05-14 13:56:50,774 (xlit_task:151)  INFO: Total trainable parameters: 333999
+2025-05-14 13:56:50,774 (xlit_task:152)  INFO: Experiment directory: exp/xlit_train_cnn_attn_char_ben_mni
+2025-05-14 13:56:50,775 (xlit_task:153)  INFO: Optimizer: Adam
+2025-05-14 13:56:50,776 (xlit_task:154)  INFO: Loss criterion: CrossEntropyLoss
+2025-05-14 13:56:50,777 (xlit_task:185)  INFO: Started training cnn_attn model on [cuda]
+2025-05-14 13:56:50,777 (xlit_task:190)  INFO: Epoch 1/50
+2025-05-14 14:01:39,015 (xlit_task:200)  INFO: Train Loss: 0.0610
+2025-05-14 14:02:11,449 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 1.
+2025-05-14 14:02:11,451 (xlit_task:238)  INFO: Val Loss: 0.0133, CER: 0.0514, Word Accuracy: 0.7104
+2025-05-14 14:02:11,452 (xlit_task:249)  INFO: Epoch 1 duration: 320.67 sec | ETA: 04:21:53
+2025-05-14 14:02:11,457 (save:32)  INFO: Saved best training loss model at epoch 1.
+2025-05-14 14:02:11,460 (save:38)  INFO: Saved best validation loss model at epoch 1.
+2025-05-14 14:02:11,463 (save:44)  INFO: Saved best word accuracy model at epoch 1.
+2025-05-14 14:02:11,467 (save:48)  INFO: Saved latest model at epoch 1.
+2025-05-14 14:02:12,696 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 14:02:12,697 (xlit_task:190)  INFO: Epoch 2/50
+2025-05-14 14:06:57,976 (xlit_task:200)  INFO: Train Loss: 0.0157
+2025-05-14 14:07:30,630 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 2.
+2025-05-14 14:07:30,631 (xlit_task:238)  INFO: Val Loss: 0.0114, CER: 0.0459, Word Accuracy: 0.7341
+2025-05-14 14:07:30,632 (xlit_task:249)  INFO: Epoch 2 duration: 317.94 sec | ETA: 04:14:20
+2025-05-14 14:07:30,637 (save:32)  INFO: Saved best training loss model at epoch 2.
+2025-05-14 14:07:30,641 (save:38)  INFO: Saved best validation loss model at epoch 2.
+2025-05-14 14:07:30,645 (save:44)  INFO: Saved best word accuracy model at epoch 2.
+2025-05-14 14:07:30,649 (save:48)  INFO: Saved latest model at epoch 2.
+2025-05-14 14:07:31,888 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 14:07:31,889 (xlit_task:190)  INFO: Epoch 3/50
+2025-05-14 14:12:19,358 (xlit_task:200)  INFO: Train Loss: 0.0146
+2025-05-14 14:12:49,255 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 3.
+2025-05-14 14:12:49,256 (xlit_task:238)  INFO: Val Loss: 0.0110, CER: 0.0413, Word Accuracy: 0.7596
+2025-05-14 14:12:49,257 (xlit_task:249)  INFO: Epoch 3 duration: 317.37 sec | ETA: 04:08:36
+2025-05-14 14:12:49,262 (save:32)  INFO: Saved best training loss model at epoch 3.
+2025-05-14 14:12:49,265 (save:38)  INFO: Saved best validation loss model at epoch 3.
+2025-05-14 14:12:49,269 (save:44)  INFO: Saved best word accuracy model at epoch 3.
+2025-05-14 14:12:49,273 (save:48)  INFO: Saved latest model at epoch 3.
+2025-05-14 14:12:50,463 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 14:12:50,465 (xlit_task:190)  INFO: Epoch 4/50
+2025-05-14 14:17:28,934 (xlit_task:200)  INFO: Train Loss: 0.0139
+2025-05-14 14:18:01,439 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 4.
+2025-05-14 14:18:01,440 (xlit_task:238)  INFO: Val Loss: 0.0095, CER: 0.0337, Word Accuracy: 0.8019
+2025-05-14 14:18:01,442 (xlit_task:249)  INFO: Epoch 4 duration: 310.98 sec | ETA: 03:58:24
+2025-05-14 14:18:01,447 (save:32)  INFO: Saved best training loss model at epoch 4.
+2025-05-14 14:18:01,454 (save:38)  INFO: Saved best validation loss model at epoch 4.
+2025-05-14 14:18:01,459 (save:44)  INFO: Saved best word accuracy model at epoch 4.
+2025-05-14 14:18:01,463 (save:48)  INFO: Saved latest model at epoch 4.
+2025-05-14 14:18:02,664 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 14:18:02,665 (xlit_task:190)  INFO: Epoch 5/50
+2025-05-14 14:22:45,569 (xlit_task:200)  INFO: Train Loss: 0.0125
+2025-05-14 14:23:15,041 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 5.
+2025-05-14 14:23:15,042 (xlit_task:238)  INFO: Val Loss: 0.0088, CER: 0.0259, Word Accuracy: 0.8496
+2025-05-14 14:23:15,044 (xlit_task:249)  INFO: Epoch 5 duration: 312.38 sec | ETA: 03:54:17
+2025-05-14 14:23:15,049 (save:32)  INFO: Saved best training loss model at epoch 5.
+2025-05-14 14:23:15,054 (save:38)  INFO: Saved best validation loss model at epoch 5.
+2025-05-14 14:23:15,057 (save:44)  INFO: Saved best word accuracy model at epoch 5.
+2025-05-14 14:23:15,061 (save:48)  INFO: Saved latest model at epoch 5.
+2025-05-14 14:23:16,269 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 14:23:16,271 (xlit_task:190)  INFO: Epoch 6/50
+2025-05-14 14:27:40,783 (xlit_task:200)  INFO: Train Loss: 0.0121
+2025-05-14 14:28:10,145 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 6.
+2025-05-14 14:28:10,146 (xlit_task:238)  INFO: Val Loss: 0.0082, CER: 0.0247, Word Accuracy: 0.8579
+2025-05-14 14:28:10,148 (xlit_task:249)  INFO: Epoch 6 duration: 293.88 sec | ETA: 03:35:30
+2025-05-14 14:28:10,153 (save:32)  INFO: Saved best training loss model at epoch 6.
+2025-05-14 14:28:10,157 (save:38)  INFO: Saved best validation loss model at epoch 6.
+2025-05-14 14:28:10,161 (save:44)  INFO: Saved best word accuracy model at epoch 6.
+2025-05-14 14:28:10,164 (save:48)  INFO: Saved latest model at epoch 6.
+2025-05-14 14:28:10,167 (save:73)  INFO: Removed evicted model from epoch 1.
+2025-05-14 14:28:11,364 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 14:28:11,365 (xlit_task:190)  INFO: Epoch 7/50
+2025-05-14 14:32:36,986 (xlit_task:200)  INFO: Train Loss: 0.0113
+2025-05-14 14:33:07,489 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 7.
+2025-05-14 14:33:07,490 (xlit_task:238)  INFO: Val Loss: 0.0078, CER: 0.0231, Word Accuracy: 0.8683
+2025-05-14 14:33:07,491 (xlit_task:249)  INFO: Epoch 7 duration: 296.13 sec | ETA: 03:32:13
+2025-05-14 14:33:07,496 (save:32)  INFO: Saved best training loss model at epoch 7.
+2025-05-14 14:33:07,500 (save:38)  INFO: Saved best validation loss model at epoch 7.
+2025-05-14 14:33:07,504 (save:44)  INFO: Saved best word accuracy model at epoch 7.
+2025-05-14 14:33:07,508 (save:48)  INFO: Saved latest model at epoch 7.
+2025-05-14 14:33:07,510 (save:73)  INFO: Removed evicted model from epoch 2.
+2025-05-14 14:33:08,798 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 14:33:08,799 (xlit_task:190)  INFO: Epoch 8/50
+2025-05-14 14:37:42,015 (xlit_task:200)  INFO: Train Loss: 0.0107
+2025-05-14 14:38:11,968 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 8.
+2025-05-14 14:38:11,969 (xlit_task:238)  INFO: Val Loss: 0.0072, CER: 0.0219, Word Accuracy: 0.8706
+2025-05-14 14:38:11,971 (xlit_task:249)  INFO: Epoch 8 duration: 303.17 sec | ETA: 03:32:13
+2025-05-14 14:38:11,976 (save:32)  INFO: Saved best training loss model at epoch 8.
+2025-05-14 14:38:11,980 (save:38)  INFO: Saved best validation loss model at epoch 8.
+2025-05-14 14:38:11,984 (save:44)  INFO: Saved best word accuracy model at epoch 8.
+2025-05-14 14:38:11,988 (save:48)  INFO: Saved latest model at epoch 8.
+2025-05-14 14:38:11,990 (save:73)  INFO: Removed evicted model from epoch 3.
+2025-05-14 14:38:13,210 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 14:38:13,211 (xlit_task:190)  INFO: Epoch 9/50
+2025-05-14 14:42:39,112 (xlit_task:200)  INFO: Train Loss: 0.0102
+2025-05-14 14:43:11,855 (xlit_task:238)  INFO: Val Loss: 0.0073, CER: 0.0219, Word Accuracy: 0.8686
+2025-05-14 14:43:11,857 (xlit_task:249)  INFO: Epoch 9 duration: 298.65 sec | ETA: 03:24:04
+2025-05-14 14:43:11,861 (save:32)  INFO: Saved best training loss model at epoch 9.
+2025-05-14 14:43:11,866 (save:48)  INFO: Saved latest model at epoch 9.
+2025-05-14 14:43:11,868 (save:73)  INFO: Removed evicted model from epoch 4.
+2025-05-14 14:43:13,108 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 14:43:13,109 (xlit_task:190)  INFO: Epoch 10/50
+2025-05-14 14:47:56,609 (xlit_task:200)  INFO: Train Loss: 0.0102
+2025-05-14 14:48:26,874 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 10.
+2025-05-14 14:48:26,875 (xlit_task:238)  INFO: Val Loss: 0.0074, CER: 0.0211, Word Accuracy: 0.8768
+2025-05-14 14:48:26,876 (xlit_task:249)  INFO: Epoch 10 duration: 313.77 sec | ETA: 03:29:10
+2025-05-14 14:48:26,881 (save:44)  INFO: Saved best word accuracy model at epoch 10.
+2025-05-14 14:48:26,885 (save:48)  INFO: Saved latest model at epoch 10.
+2025-05-14 14:48:26,887 (save:73)  INFO: Removed evicted model from epoch 5.
+2025-05-14 14:48:28,004 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 14:48:28,005 (xlit_task:190)  INFO: Epoch 11/50
+2025-05-14 14:53:01,495 (xlit_task:200)  INFO: Train Loss: 0.0096
+2025-05-14 14:53:31,222 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 11.
+2025-05-14 14:53:31,224 (xlit_task:238)  INFO: Val Loss: 0.0070, CER: 0.0199, Word Accuracy: 0.8843
+2025-05-14 14:53:31,225 (xlit_task:249)  INFO: Epoch 11 duration: 303.22 sec | ETA: 03:17:05
+2025-05-14 14:53:31,230 (save:32)  INFO: Saved best training loss model at epoch 11.
+2025-05-14 14:53:31,234 (save:38)  INFO: Saved best validation loss model at epoch 11.
+2025-05-14 14:53:31,238 (save:44)  INFO: Saved best word accuracy model at epoch 11.
+2025-05-14 14:53:31,242 (save:48)  INFO: Saved latest model at epoch 11.
+2025-05-14 14:53:31,244 (save:73)  INFO: Removed evicted model from epoch 6.
+2025-05-14 14:53:32,395 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 14:53:32,397 (xlit_task:190)  INFO: Epoch 12/50
+2025-05-14 14:58:00,225 (xlit_task:200)  INFO: Train Loss: 0.0096
+2025-05-14 14:58:29,981 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 12.
+2025-05-14 14:58:29,982 (xlit_task:238)  INFO: Val Loss: 0.0069, CER: 0.0192, Word Accuracy: 0.8889
+2025-05-14 14:58:29,983 (xlit_task:249)  INFO: Epoch 12 duration: 297.59 sec | ETA: 03:08:28
+2025-05-14 14:58:29,988 (save:32)  INFO: Saved best training loss model at epoch 12.
+2025-05-14 14:58:29,992 (save:38)  INFO: Saved best validation loss model at epoch 12.
+2025-05-14 14:58:29,996 (save:44)  INFO: Saved best word accuracy model at epoch 12.
+2025-05-14 14:58:30,000 (save:48)  INFO: Saved latest model at epoch 12.
+2025-05-14 14:58:30,002 (save:73)  INFO: Removed evicted model from epoch 7.
+2025-05-14 14:58:31,210 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 14:58:31,211 (xlit_task:190)  INFO: Epoch 13/50
+2025-05-14 15:03:09,159 (xlit_task:200)  INFO: Train Loss: 0.0090
+2025-05-14 15:03:40,290 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 13.
+2025-05-14 15:03:40,291 (xlit_task:238)  INFO: Val Loss: 0.0067, CER: 0.0189, Word Accuracy: 0.8901
+2025-05-14 15:03:40,293 (xlit_task:249)  INFO: Epoch 13 duration: 309.08 sec | ETA: 03:10:36
+2025-05-14 15:03:40,298 (save:32)  INFO: Saved best training loss model at epoch 13.
+2025-05-14 15:03:40,302 (save:38)  INFO: Saved best validation loss model at epoch 13.
+2025-05-14 15:03:40,306 (save:44)  INFO: Saved best word accuracy model at epoch 13.
+2025-05-14 15:03:40,311 (save:48)  INFO: Saved latest model at epoch 13.
+2025-05-14 15:03:40,313 (save:73)  INFO: Removed evicted model from epoch 10.
+2025-05-14 15:03:41,569 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 15:03:41,570 (xlit_task:190)  INFO: Epoch 14/50
+2025-05-14 15:08:16,610 (xlit_task:200)  INFO: Train Loss: 0.0087
+2025-05-14 15:08:46,426 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 14.
+2025-05-14 15:08:46,427 (xlit_task:238)  INFO: Val Loss: 0.0062, CER: 0.0185, Word Accuracy: 0.8918
+2025-05-14 15:08:46,428 (xlit_task:249)  INFO: Epoch 14 duration: 304.86 sec | ETA: 03:02:54
+2025-05-14 15:08:46,433 (save:32)  INFO: Saved best training loss model at epoch 14.
+2025-05-14 15:08:46,437 (save:38)  INFO: Saved best validation loss model at epoch 14.
+2025-05-14 15:08:46,440 (save:44)  INFO: Saved best word accuracy model at epoch 14.
+2025-05-14 15:08:46,444 (save:48)  INFO: Saved latest model at epoch 14.
+2025-05-14 15:08:46,447 (save:73)  INFO: Removed evicted model from epoch 9.
+2025-05-14 15:08:47,835 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 15:08:47,836 (xlit_task:190)  INFO: Epoch 15/50
+2025-05-14 15:13:17,446 (xlit_task:200)  INFO: Train Loss: 0.0086
+2025-05-14 15:13:47,279 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 15.
+2025-05-14 15:13:47,281 (xlit_task:238)  INFO: Val Loss: 0.0066, CER: 0.0184, Word Accuracy: 0.8943
+2025-05-14 15:13:47,282 (xlit_task:249)  INFO: Epoch 15 duration: 299.45 sec | ETA: 02:54:40
+2025-05-14 15:13:47,288 (save:32)  INFO: Saved best training loss model at epoch 15.
+2025-05-14 15:13:47,292 (save:44)  INFO: Saved best word accuracy model at epoch 15.
+2025-05-14 15:13:47,296 (save:48)  INFO: Saved latest model at epoch 15.
+2025-05-14 15:13:47,299 (save:73)  INFO: Removed evicted model from epoch 8.
+2025-05-14 15:13:48,541 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 15:13:48,542 (xlit_task:190)  INFO: Epoch 16/50
+2025-05-14 15:18:21,692 (xlit_task:200)  INFO: Train Loss: 0.0109
+2025-05-14 15:18:51,311 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 16.
+2025-05-14 15:18:51,313 (xlit_task:238)  INFO: Val Loss: 0.0062, CER: 0.0175, Word Accuracy: 0.8965
+2025-05-14 15:18:51,314 (xlit_task:249)  INFO: Epoch 16 duration: 302.77 sec | ETA: 02:51:34
+2025-05-14 15:18:51,319 (save:38)  INFO: Saved best validation loss model at epoch 16.
+2025-05-14 15:18:51,322 (save:44)  INFO: Saved best word accuracy model at epoch 16.
+2025-05-14 15:18:51,326 (save:48)  INFO: Saved latest model at epoch 16.
+2025-05-14 15:18:51,328 (save:73)  INFO: Removed evicted model from epoch 11.
+2025-05-14 15:18:52,552 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 15:18:52,554 (xlit_task:190)  INFO: Epoch 17/50
+2025-05-14 15:23:25,422 (xlit_task:200)  INFO: Train Loss: 0.0082
+2025-05-14 15:23:55,269 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 17.
+2025-05-14 15:23:55,270 (xlit_task:238)  INFO: Val Loss: 0.0065, CER: 0.0173, Word Accuracy: 0.9007
+2025-05-14 15:23:55,271 (xlit_task:249)  INFO: Epoch 17 duration: 302.72 sec | ETA: 02:46:29
+2025-05-14 15:23:55,276 (save:32)  INFO: Saved best training loss model at epoch 17.
+2025-05-14 15:23:55,280 (save:44)  INFO: Saved best word accuracy model at epoch 17.
+2025-05-14 15:23:55,284 (save:48)  INFO: Saved latest model at epoch 17.
+2025-05-14 15:23:55,286 (save:73)  INFO: Removed evicted model from epoch 12.
+2025-05-14 15:23:56,547 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 15:23:56,548 (xlit_task:190)  INFO: Epoch 18/50
+2025-05-14 15:28:30,564 (xlit_task:200)  INFO: Train Loss: 0.0081
+2025-05-14 15:29:00,672 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 18.
+2025-05-14 15:29:00,673 (xlit_task:238)  INFO: Val Loss: 0.0061, CER: 0.0162, Word Accuracy: 0.9062
+2025-05-14 15:29:00,674 (xlit_task:249)  INFO: Epoch 18 duration: 304.13 sec | ETA: 02:42:12
+2025-05-14 15:29:00,679 (save:32)  INFO: Saved best training loss model at epoch 18.
+2025-05-14 15:29:00,683 (save:38)  INFO: Saved best validation loss model at epoch 18.
+2025-05-14 15:29:00,686 (save:44)  INFO: Saved best word accuracy model at epoch 18.
+2025-05-14 15:29:00,690 (save:48)  INFO: Saved latest model at epoch 18.
+2025-05-14 15:29:00,693 (save:73)  INFO: Removed evicted model from epoch 13.
+2025-05-14 15:29:01,861 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 15:29:01,862 (xlit_task:190)  INFO: Epoch 19/50
+2025-05-14 15:33:37,186 (xlit_task:200)  INFO: Train Loss: 0.0104
+2025-05-14 15:34:07,173 (xlit_task:238)  INFO: Val Loss: 0.0061, CER: 0.0173, Word Accuracy: 0.8971
+2025-05-14 15:34:07,175 (xlit_task:249)  INFO: Epoch 19 duration: 305.31 sec | ETA: 02:37:44
+2025-05-14 15:34:07,180 (save:38)  INFO: Saved best validation loss model at epoch 19.
+2025-05-14 15:34:07,184 (save:48)  INFO: Saved latest model at epoch 19.
+2025-05-14 15:34:07,187 (save:73)  INFO: Removed evicted model from epoch 15.
+2025-05-14 15:34:08,358 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 15:34:08,359 (xlit_task:190)  INFO: Epoch 20/50
+2025-05-14 15:38:37,040 (xlit_task:200)  INFO: Train Loss: 0.0081
+2025-05-14 15:39:06,851 (xlit_task:238)  INFO: Val Loss: 0.0063, CER: 0.0168, Word Accuracy: 0.9029
+2025-05-14 15:39:06,852 (xlit_task:249)  INFO: Epoch 20 duration: 298.49 sec | ETA: 02:29:14
+2025-05-14 15:39:06,861 (save:32)  INFO: Saved best training loss model at epoch 20.
+2025-05-14 15:39:06,869 (save:48)  INFO: Saved latest model at epoch 20.
+2025-05-14 15:39:06,873 (save:73)  INFO: Removed evicted model from epoch 17.
+2025-05-14 15:39:08,078 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 15:39:08,079 (xlit_task:190)  INFO: Epoch 21/50
+2025-05-14 15:43:37,073 (xlit_task:200)  INFO: Train Loss: 0.0075
+2025-05-14 15:44:07,082 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 21.
+2025-05-14 15:44:07,083 (xlit_task:238)  INFO: Val Loss: 0.0058, CER: 0.0148, Word Accuracy: 0.9127
+2025-05-14 15:44:07,085 (xlit_task:249)  INFO: Epoch 21 duration: 299.01 sec | ETA: 02:24:31
+2025-05-14 15:44:07,090 (save:32)  INFO: Saved best training loss model at epoch 21.
+2025-05-14 15:44:07,094 (save:38)  INFO: Saved best validation loss model at epoch 21.
+2025-05-14 15:44:07,098 (save:44)  INFO: Saved best word accuracy model at epoch 21.
+2025-05-14 15:44:07,102 (save:48)  INFO: Saved latest model at epoch 21.
+2025-05-14 15:44:07,105 (save:73)  INFO: Removed evicted model from epoch 20.
+2025-05-14 15:44:08,351 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 15:44:08,352 (xlit_task:190)  INFO: Epoch 22/50
+2025-05-14 15:48:40,629 (xlit_task:200)  INFO: Train Loss: 0.0073
+2025-05-14 15:49:10,515 (xlit_task:238)  INFO: Val Loss: 0.0057, CER: 0.0152, Word Accuracy: 0.9117
+2025-05-14 15:49:10,517 (xlit_task:249)  INFO: Epoch 22 duration: 302.16 sec | ETA: 02:21:00
+2025-05-14 15:49:10,522 (save:32)  INFO: Saved best training loss model at epoch 22.
+2025-05-14 15:49:10,526 (save:38)  INFO: Saved best validation loss model at epoch 22.
+2025-05-14 15:49:10,530 (save:48)  INFO: Saved latest model at epoch 22.
+2025-05-14 15:49:10,532 (save:73)  INFO: Removed evicted model from epoch 14.
+2025-05-14 15:49:11,660 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 15:49:11,661 (xlit_task:190)  INFO: Epoch 23/50
+2025-05-14 15:53:38,044 (xlit_task:200)  INFO: Train Loss: 0.0077
+2025-05-14 15:54:07,895 (xlit_task:238)  INFO: Val Loss: 0.0060, CER: 0.0152, Word Accuracy: 0.9100
+2025-05-14 15:54:07,897 (xlit_task:249)  INFO: Epoch 23 duration: 296.24 sec | ETA: 02:13:18
+2025-05-14 15:54:07,901 (save:48)  INFO: Saved latest model at epoch 23.
+2025-05-14 15:54:07,904 (save:73)  INFO: Removed evicted model from epoch 16.
+2025-05-14 15:54:09,018 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 15:54:09,020 (xlit_task:190)  INFO: Epoch 24/50
+2025-05-14 15:58:35,401 (xlit_task:200)  INFO: Train Loss: 0.0073
+2025-05-14 15:59:05,090 (xlit_task:238)  INFO: Val Loss: 0.0062, CER: 0.0159, Word Accuracy: 0.9090
+2025-05-14 15:59:05,091 (xlit_task:249)  INFO: Epoch 24 duration: 296.07 sec | ETA: 02:08:17
+2025-05-14 15:59:05,097 (save:48)  INFO: Saved latest model at epoch 24.
+2025-05-14 15:59:06,265 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 15:59:06,266 (xlit_task:190)  INFO: Epoch 25/50
+2025-05-14 16:03:30,178 (xlit_task:200)  INFO: Train Loss: 0.0071
+2025-05-14 16:03:59,748 (xlit_task:238)  INFO: Val Loss: 0.0059, CER: 0.0147, Word Accuracy: 0.9126
+2025-05-14 16:03:59,750 (xlit_task:249)  INFO: Epoch 25 duration: 293.48 sec | ETA: 02:02:17
+2025-05-14 16:03:59,762 (save:32)  INFO: Saved best training loss model at epoch 25.
+2025-05-14 16:03:59,770 (save:48)  INFO: Saved latest model at epoch 25.
+2025-05-14 16:03:59,774 (save:73)  INFO: Removed evicted model from epoch 18.
+2025-05-14 16:04:00,987 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 16:04:00,988 (xlit_task:190)  INFO: Epoch 26/50
+2025-05-14 16:08:26,742 (xlit_task:200)  INFO: Train Loss: 0.0073
+2025-05-14 16:08:56,338 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 26.
+2025-05-14 16:08:56,339 (xlit_task:238)  INFO: Val Loss: 0.0056, CER: 0.0144, Word Accuracy: 0.9162
+2025-05-14 16:08:56,340 (xlit_task:249)  INFO: Epoch 26 duration: 295.35 sec | ETA: 01:58:08
+2025-05-14 16:08:56,346 (save:38)  INFO: Saved best validation loss model at epoch 26.
+2025-05-14 16:08:56,350 (save:44)  INFO: Saved best word accuracy model at epoch 26.
+2025-05-14 16:08:56,354 (save:48)  INFO: Saved latest model at epoch 26.
+2025-05-14 16:08:56,356 (save:73)  INFO: Removed evicted model from epoch 19.
+2025-05-14 16:08:57,532 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 16:08:57,533 (xlit_task:190)  INFO: Epoch 27/50
+2025-05-14 16:13:21,723 (xlit_task:200)  INFO: Train Loss: 0.0095
+2025-05-14 16:13:51,357 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 27.
+2025-05-14 16:13:51,358 (xlit_task:238)  INFO: Val Loss: 0.0055, CER: 0.0144, Word Accuracy: 0.9164
+2025-05-14 16:13:51,359 (xlit_task:249)  INFO: Epoch 27 duration: 293.83 sec | ETA: 01:52:37
+2025-05-14 16:13:51,364 (save:38)  INFO: Saved best validation loss model at epoch 27.
+2025-05-14 16:13:51,368 (save:44)  INFO: Saved best word accuracy model at epoch 27.
+2025-05-14 16:13:51,372 (save:48)  INFO: Saved latest model at epoch 27.
+2025-05-14 16:13:51,374 (save:73)  INFO: Removed evicted model from epoch 23.
+2025-05-14 16:13:52,557 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 16:13:52,558 (xlit_task:190)  INFO: Epoch 28/50
+2025-05-14 16:18:20,745 (xlit_task:200)  INFO: Train Loss: 0.0070
+2025-05-14 16:18:50,371 (xlit_task:238)  INFO: Val Loss: 0.0057, CER: 0.0146, Word Accuracy: 0.9146
+2025-05-14 16:18:50,373 (xlit_task:249)  INFO: Epoch 28 duration: 297.81 sec | ETA: 01:49:11
+2025-05-14 16:18:50,378 (save:32)  INFO: Saved best training loss model at epoch 28.
+2025-05-14 16:18:50,382 (save:48)  INFO: Saved latest model at epoch 28.
+2025-05-14 16:18:50,385 (save:73)  INFO: Removed evicted model from epoch 25.
+2025-05-14 16:18:51,560 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 16:18:51,562 (xlit_task:190)  INFO: Epoch 29/50
+2025-05-14 16:23:19,846 (xlit_task:200)  INFO: Train Loss: 0.0093
+2025-05-14 16:23:49,554 (xlit_task:238)  INFO: Val Loss: 0.0056, CER: 0.0145, Word Accuracy: 0.9163
+2025-05-14 16:23:49,556 (xlit_task:249)  INFO: Epoch 29 duration: 297.99 sec | ETA: 01:44:17
+2025-05-14 16:23:49,561 (save:48)  INFO: Saved latest model at epoch 29.
+2025-05-14 16:23:49,564 (save:73)  INFO: Removed evicted model from epoch 21.
+2025-05-14 16:23:50,691 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 16:23:50,693 (xlit_task:190)  INFO: Epoch 30/50
+2025-05-14 16:28:15,822 (xlit_task:200)  INFO: Train Loss: 0.0066
+2025-05-14 16:28:45,516 (xlit_task:238)  INFO: Val Loss: 0.0055, CER: 0.0142, Word Accuracy: 0.9153
+2025-05-14 16:28:45,518 (xlit_task:249)  INFO: Epoch 30 duration: 294.83 sec | ETA: 01:38:16
+2025-05-14 16:28:45,523 (save:32)  INFO: Saved best training loss model at epoch 30.
+2025-05-14 16:28:45,526 (save:38)  INFO: Saved best validation loss model at epoch 30.
+2025-05-14 16:28:45,530 (save:48)  INFO: Saved latest model at epoch 30.
+2025-05-14 16:28:45,533 (save:73)  INFO: Removed evicted model from epoch 22.
+2025-05-14 16:28:46,665 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 16:28:46,666 (xlit_task:190)  INFO: Epoch 31/50
+2025-05-14 16:33:11,011 (xlit_task:200)  INFO: Train Loss: 0.0067
+2025-05-14 16:33:40,752 (xlit_task:238)  INFO: Val Loss: 0.0056, CER: 0.0143, Word Accuracy: 0.9163
+2025-05-14 16:33:40,754 (xlit_task:249)  INFO: Epoch 31 duration: 294.09 sec | ETA: 01:33:07
+2025-05-14 16:33:40,758 (save:48)  INFO: Saved latest model at epoch 31.
+2025-05-14 16:33:40,761 (save:73)  INFO: Removed evicted model from epoch 28.
+2025-05-14 16:33:41,959 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 16:33:41,961 (xlit_task:190)  INFO: Epoch 32/50
+2025-05-14 16:38:07,491 (xlit_task:200)  INFO: Train Loss: 0.0067
+2025-05-14 16:38:37,757 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 32.
+2025-05-14 16:38:37,759 (xlit_task:238)  INFO: Val Loss: 0.0056, CER: 0.0139, Word Accuracy: 0.9182
+2025-05-14 16:38:37,760 (xlit_task:249)  INFO: Epoch 32 duration: 295.80 sec | ETA: 01:28:44
+2025-05-14 16:38:37,765 (save:44)  INFO: Saved best word accuracy model at epoch 32.
+2025-05-14 16:38:37,769 (save:48)  INFO: Saved latest model at epoch 32.
+2025-05-14 16:38:38,965 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 16:38:38,966 (xlit_task:190)  INFO: Epoch 33/50
+2025-05-14 16:43:05,778 (xlit_task:200)  INFO: Train Loss: 0.0064
+2025-05-14 16:43:36,113 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 33.
+2025-05-14 16:43:36,114 (xlit_task:238)  INFO: Val Loss: 0.0052, CER: 0.0137, Word Accuracy: 0.9196
+2025-05-14 16:43:36,115 (xlit_task:249)  INFO: Epoch 33 duration: 297.15 sec | ETA: 01:24:11
+2025-05-14 16:43:36,120 (save:32)  INFO: Saved best training loss model at epoch 33.
+2025-05-14 16:43:36,124 (save:38)  INFO: Saved best validation loss model at epoch 33.
+2025-05-14 16:43:36,128 (save:44)  INFO: Saved best word accuracy model at epoch 33.
+2025-05-14 16:43:36,132 (save:48)  INFO: Saved latest model at epoch 33.
+2025-05-14 16:43:36,134 (save:73)  INFO: Removed evicted model from epoch 31.
+2025-05-14 16:43:37,283 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 16:43:37,284 (xlit_task:190)  INFO: Epoch 34/50
+2025-05-14 16:48:04,911 (xlit_task:200)  INFO: Train Loss: 0.0061
+2025-05-14 16:48:35,213 (xlit_task:238)  INFO: Val Loss: 0.0053, CER: 0.0138, Word Accuracy: 0.9175
+2025-05-14 16:48:35,214 (xlit_task:249)  INFO: Epoch 34 duration: 297.93 sec | ETA: 01:19:26
+2025-05-14 16:48:35,219 (save:32)  INFO: Saved best training loss model at epoch 34.
+2025-05-14 16:48:35,223 (save:48)  INFO: Saved latest model at epoch 34.
+2025-05-14 16:48:35,225 (save:73)  INFO: Removed evicted model from epoch 29.
+2025-05-14 16:48:36,366 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 16:48:36,367 (xlit_task:190)  INFO: Epoch 35/50
+2025-05-14 16:53:06,961 (xlit_task:200)  INFO: Train Loss: 0.0064
+2025-05-14 16:53:37,024 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 35.
+2025-05-14 16:53:37,025 (xlit_task:238)  INFO: Val Loss: 0.0051, CER: 0.0130, Word Accuracy: 0.9226
+2025-05-14 16:53:37,027 (xlit_task:249)  INFO: Epoch 35 duration: 300.66 sec | ETA: 01:15:09
+2025-05-14 16:53:37,031 (save:38)  INFO: Saved best validation loss model at epoch 35.
+2025-05-14 16:53:37,035 (save:44)  INFO: Saved best word accuracy model at epoch 35.
+2025-05-14 16:53:37,039 (save:48)  INFO: Saved latest model at epoch 35.
+2025-05-14 16:53:37,041 (save:73)  INFO: Removed evicted model from epoch 26.
+2025-05-14 16:53:38,218 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 16:53:38,219 (xlit_task:190)  INFO: Epoch 36/50
+2025-05-14 16:58:06,267 (xlit_task:200)  INFO: Train Loss: 0.0061
+2025-05-14 16:58:36,026 (xlit_task:238)  INFO: Val Loss: 0.0055, CER: 0.0137, Word Accuracy: 0.9203
+2025-05-14 16:58:36,027 (xlit_task:249)  INFO: Epoch 36 duration: 297.81 sec | ETA: 01:09:29
+2025-05-14 16:58:36,033 (save:48)  INFO: Saved latest model at epoch 36.
+2025-05-14 16:58:37,241 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 16:58:37,242 (xlit_task:190)  INFO: Epoch 37/50
+2025-05-14 17:03:05,268 (xlit_task:200)  INFO: Train Loss: 0.0062
+2025-05-14 17:03:35,056 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 37.
+2025-05-14 17:03:35,057 (xlit_task:238)  INFO: Val Loss: 0.0055, CER: 0.0130, Word Accuracy: 0.9254
+2025-05-14 17:03:35,059 (xlit_task:249)  INFO: Epoch 37 duration: 297.82 sec | ETA: 01:04:31
+2025-05-14 17:03:35,064 (save:44)  INFO: Saved best word accuracy model at epoch 37.
+2025-05-14 17:03:35,068 (save:48)  INFO: Saved latest model at epoch 37.
+2025-05-14 17:03:36,222 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 17:03:36,223 (xlit_task:190)  INFO: Epoch 38/50
+2025-05-14 17:08:00,303 (xlit_task:200)  INFO: Train Loss: 0.0060
+2025-05-14 17:08:30,025 (xlit_task:238)  INFO: Val Loss: 0.0052, CER: 0.0130, Word Accuracy: 0.9228
+2025-05-14 17:08:30,027 (xlit_task:249)  INFO: Epoch 38 duration: 293.80 sec | ETA: 00:58:45
+2025-05-14 17:08:30,031 (save:32)  INFO: Saved best training loss model at epoch 38.
+2025-05-14 17:08:30,035 (save:48)  INFO: Saved latest model at epoch 38.
+2025-05-14 17:08:30,038 (save:73)  INFO: Removed evicted model from epoch 27.
+2025-05-14 17:08:31,185 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 17:08:31,187 (xlit_task:190)  INFO: Epoch 39/50
+2025-05-14 17:12:57,196 (xlit_task:200)  INFO: Train Loss: 0.0087
+2025-05-14 17:13:26,897 (xlit_task:238)  INFO: Val Loss: 0.0051, CER: 0.0128, Word Accuracy: 0.9247
+2025-05-14 17:13:26,898 (xlit_task:249)  INFO: Epoch 39 duration: 295.71 sec | ETA: 00:54:12
+2025-05-14 17:13:26,904 (save:38)  INFO: Saved best validation loss model at epoch 39.
+2025-05-14 17:13:26,908 (save:48)  INFO: Saved latest model at epoch 39.
+2025-05-14 17:13:26,910 (save:73)  INFO: Removed evicted model from epoch 30.
+2025-05-14 17:13:28,115 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 17:13:28,116 (xlit_task:190)  INFO: Epoch 40/50
+2025-05-14 17:17:56,065 (xlit_task:200)  INFO: Train Loss: 0.0061
+2025-05-14 17:18:25,769 (xlit_task:238)  INFO: Val Loss: 0.0055, CER: 0.0133, Word Accuracy: 0.9224
+2025-05-14 17:18:25,771 (xlit_task:249)  INFO: Epoch 40 duration: 297.66 sec | ETA: 00:49:36
+2025-05-14 17:18:25,776 (save:48)  INFO: Saved latest model at epoch 40.
+2025-05-14 17:18:26,999 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 17:18:27,000 (xlit_task:190)  INFO: Epoch 41/50
+2025-05-14 17:22:52,754 (xlit_task:200)  INFO: Train Loss: 0.0059
+2025-05-14 17:23:22,435 (xlit_task:238)  INFO: Val Loss: 0.0054, CER: 0.0135, Word Accuracy: 0.9214
+2025-05-14 17:23:22,437 (xlit_task:249)  INFO: Epoch 41 duration: 295.44 sec | ETA: 00:44:18
+2025-05-14 17:23:22,442 (save:32)  INFO: Saved best training loss model at epoch 41.
+2025-05-14 17:23:22,446 (save:48)  INFO: Saved latest model at epoch 41.
+2025-05-14 17:23:23,669 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 17:23:23,671 (xlit_task:190)  INFO: Epoch 42/50
+2025-05-14 17:27:49,765 (xlit_task:200)  INFO: Train Loss: 0.0058
+2025-05-14 17:28:19,519 (xlit_task:238)  INFO: Val Loss: 0.0051, CER: 0.0128, Word Accuracy: 0.9235
+2025-05-14 17:28:19,520 (xlit_task:249)  INFO: Epoch 42 duration: 295.85 sec | ETA: 00:39:26
+2025-05-14 17:28:19,526 (save:32)  INFO: Saved best training loss model at epoch 42.
+2025-05-14 17:28:19,530 (save:48)  INFO: Saved latest model at epoch 42.
+2025-05-14 17:28:19,533 (save:73)  INFO: Removed evicted model from epoch 34.
+2025-05-14 17:28:20,725 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 17:28:20,726 (xlit_task:190)  INFO: Epoch 43/50
+2025-05-14 17:32:45,194 (xlit_task:200)  INFO: Train Loss: 0.0059
+2025-05-14 17:33:14,489 (xlit_task:238)  INFO: Val Loss: 0.0053, CER: 0.0129, Word Accuracy: 0.9234
+2025-05-14 17:33:14,490 (xlit_task:249)  INFO: Epoch 43 duration: 293.76 sec | ETA: 00:34:16
+2025-05-14 17:33:14,495 (save:48)  INFO: Saved latest model at epoch 43.
+2025-05-14 17:33:15,600 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 17:33:15,601 (xlit_task:190)  INFO: Epoch 44/50
+2025-05-14 17:37:40,245 (xlit_task:200)  INFO: Train Loss: 0.0058
+2025-05-14 17:38:09,816 (xlit_task:238)  INFO: Val Loss: 0.0054, CER: 0.0137, Word Accuracy: 0.9194
+2025-05-14 17:38:09,817 (xlit_task:249)  INFO: Epoch 44 duration: 294.22 sec | ETA: 00:29:25
+2025-05-14 17:38:09,822 (save:32)  INFO: Saved best training loss model at epoch 44.
+2025-05-14 17:38:09,826 (save:48)  INFO: Saved latest model at epoch 44.
+2025-05-14 17:38:10,930 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 17:38:10,931 (xlit_task:190)  INFO: Epoch 45/50
+2025-05-14 17:42:34,020 (xlit_task:200)  INFO: Train Loss: 0.0057
+2025-05-14 17:43:03,614 (xlit_task:238)  INFO: Val Loss: 0.0052, CER: 0.0132, Word Accuracy: 0.9214
+2025-05-14 17:43:03,616 (xlit_task:249)  INFO: Epoch 45 duration: 292.68 sec | ETA: 00:24:23
+2025-05-14 17:43:03,621 (save:32)  INFO: Saved best training loss model at epoch 45.
+2025-05-14 17:43:03,624 (save:48)  INFO: Saved latest model at epoch 45.
+2025-05-14 17:43:03,627 (save:73)  INFO: Removed evicted model from epoch 33.
+2025-05-14 17:43:04,759 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 17:43:04,761 (xlit_task:190)  INFO: Epoch 46/50
+2025-05-14 17:47:30,478 (xlit_task:200)  INFO: Train Loss: 0.0057
+2025-05-14 17:48:00,136 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 46.
+2025-05-14 17:48:00,138 (xlit_task:238)  INFO: Val Loss: 0.0052, CER: 0.0126, Word Accuracy: 0.9262
+2025-05-14 17:48:00,139 (xlit_task:249)  INFO: Epoch 46 duration: 295.38 sec | ETA: 00:19:41
+2025-05-14 17:48:00,144 (save:32)  INFO: Saved best training loss model at epoch 46.
+2025-05-14 17:48:00,148 (save:44)  INFO: Saved best word accuracy model at epoch 46.
+2025-05-14 17:48:00,152 (save:48)  INFO: Saved latest model at epoch 46.
+2025-05-14 17:48:01,321 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 17:48:01,323 (xlit_task:190)  INFO: Epoch 47/50
+2025-05-14 17:52:33,229 (xlit_task:200)  INFO: Train Loss: 0.0057
+2025-05-14 17:53:02,995 (xlit_task:238)  INFO: Val Loss: 0.0052, CER: 0.0127, Word Accuracy: 0.9242
+2025-05-14 17:53:02,997 (xlit_task:249)  INFO: Epoch 47 duration: 301.67 sec | ETA: 00:15:05
+2025-05-14 17:53:03,002 (save:48)  INFO: Saved latest model at epoch 47.
+2025-05-14 17:53:03,004 (save:73)  INFO: Removed evicted model from epoch 45.
+2025-05-14 17:53:04,197 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 17:53:04,198 (xlit_task:190)  INFO: Epoch 48/50
+2025-05-14 17:57:30,759 (xlit_task:200)  INFO: Train Loss: 0.0055
+2025-05-14 17:58:00,715 (xlit_task:238)  INFO: Val Loss: 0.0052, CER: 0.0134, Word Accuracy: 0.9212
+2025-05-14 17:58:00,716 (xlit_task:249)  INFO: Epoch 48 duration: 296.52 sec | ETA: 00:09:53
+2025-05-14 17:58:00,722 (save:32)  INFO: Saved best training loss model at epoch 48.
+2025-05-14 17:58:00,726 (save:48)  INFO: Saved latest model at epoch 48.
+2025-05-14 17:58:01,889 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 17:58:01,890 (xlit_task:190)  INFO: Epoch 49/50
+2025-05-14 18:02:28,968 (xlit_task:200)  INFO: Train Loss: 0.0056
+2025-05-14 18:02:59,023 (xlit_task:238)  INFO: Val Loss: 0.0051, CER: 0.0128, Word Accuracy: 0.9245
+2025-05-14 18:02:59,024 (xlit_task:249)  INFO: Epoch 49 duration: 297.13 sec | ETA: 00:04:57
+2025-05-14 18:02:59,029 (save:48)  INFO: Saved latest model at epoch 49.
+2025-05-14 18:02:59,032 (save:73)  INFO: Removed evicted model from epoch 38.
+2025-05-14 18:03:00,150 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 18:03:00,151 (xlit_task:190)  INFO: Epoch 50/50
+2025-05-14 18:07:25,826 (xlit_task:200)  INFO: Train Loss: 0.0054
+2025-05-14 18:07:55,458 (xlit_task:227)  INFO: Saved best word accuracy predictions at epoch 50.
+2025-05-14 18:07:55,460 (xlit_task:238)  INFO: Val Loss: 0.0052, CER: 0.0125, Word Accuracy: 0.9265
+2025-05-14 18:07:55,461 (xlit_task:249)  INFO: Epoch 50 duration: 295.31 sec | ETA: 00:00:00
+2025-05-14 18:07:55,467 (save:32)  INFO: Saved best training loss model at epoch 50.
+2025-05-14 18:07:55,471 (save:44)  INFO: Saved best word accuracy model at epoch 50.
+2025-05-14 18:07:55,476 (save:48)  INFO: Saved latest model at epoch 50.
+2025-05-14 18:07:55,478 (save:73)  INFO: Removed evicted model from epoch 47.
+2025-05-14 18:07:55,487 (save:84)  INFO: Saved averaged model at the end of training.
+2025-05-14 18:07:56,633 (xlit_task:274)  INFO: Saved [loss, wa, cer] curves at exp/xlit_train_cnn_attn_char_ben_mni/images
+2025-05-14 18:07:56,634 (xlit_task:283)  INFO: Training completed in 251:00:06

@@ -97,6 +97,7 @@ xlit_project/
 | Attention   | 0.0084 (34/49)   | 0.9501 (43)     | 653,231      | 04:37:18      | 50       | 00:05:33        |
 | LSTM        | 0.0173 (47)      | 0.9129 (47)     | 542,639      | 02:49:25      | 50       | 00:03:23        |
 | Transformer | 0.0080 (19)      | 0.9534 (19)     | 5,313,071    | 20:05:50      | 20       | 01:00:18        |
+| CNN+PE+Attn | 0.0125 (50)      | 0.9265 (50)     | 333,999      | 04:11:06      | 50       | 00:05:01        |
 
 The decode data are here
 
@@ -105,6 +106,8 @@ The decode data are here
 - [LSTM Model Decoding](./exp/xlit_train_lstm_char_ben_mni/decode/wa.best.decode)
 
 - [Transformer Model Decoding](./exp/xlit_train_transformer_char_ben_mni/decode/wa.best.decode)
+
+- [CNN Attention Model Decoding](./exp/xlit_train_cnn_attn_char_ben_mni/decode/wa.best.decode)
 
 ## Plots
 
@@ -122,6 +125,10 @@ The decode data are here
 
 ![transformer loss](./exp/xlit_train_transformer_char_ben_mni/images/losses.png)
 
+- CNN Attention Model
+
+![cnn attn loss](./exp/xlit_train_cnn_attn_char_ben_mni/images/losses.png)
+
 ### Character Error Rate Plots
 
 - Attention Model
@@ -135,6 +142,10 @@ The decode data are here
 - Transformer Model
 
 ![transformer cer](./exp/xlit_train_transformer_char_ben_mni/images/cer.png)
+
+- CNN Attention Model
+
+![cnn attn cer](./exp/xlit_train_cnn_attn_char_ben_mni/images/cer.png)
 
 ### Word Accuracy Plots
 
@@ -150,6 +161,67 @@ The decode data are here
 
 ![transformer wa](./exp/xlit_train_transformer_char_ben_mni/images/wa.png)
 
+- CNN Attention Model
+
+![cnn attn wa](./exp/xlit_train_cnn_attn_char_ben_mni/images/wa.png)
+
+## Current Models
+
+1. LSTM + Bahdanau-style Attention (additive)
+
+```cmd
+AttnSeq2Seq(
+  (encoder): Encoder(
+    (embedding): Embedding(64, 128)
+    (rnn): LSTM(128, 128, num_layers=2, batch_first=True, dropout=0.25)
+    (dropout): Dropout(p=0.25, inplace=False)
+  )
+  (decoder): Decoder(
+    (embedding): Embedding(47, 128)
+    (rnn): LSTM(256, 128, num_layers=2, batch_first=True, dropout=0.25)
+    (fc_out): Linear(in_features=256, out_features=47, bias=True)
+    (dropout): Dropout(p=0.25, inplace=False)
+    (attention): Attention(
+      (attn): Linear(in_features=256, out_features=128, bias=True)
+      (v): Linear(in_features=128, out_features=1, bias=False)
+    )
+  )
+)
+```
+
+2. LSTM
+
+```cmd
+LSTMSeq2Seq(
+  (embedding): Embedding(64, 128)
+  (encoder): LSTM(128, 128, num_layers=2, batch_first=True, dropout=0.25)
+  (decoder): LSTM(128, 128, num_layers=2, batch_first=True, dropout=0.25)
+  (output_layer): Linear(in_features=128, out_features=47, bias=True)
+  (dropout): Dropout(p=0.25, inplace=False)
+)
+```
+
+3. CNN + Scaled dot product Attention
+
+```cmd
+CNNSeq2SeqAttn(
+  (encoder): ConvEncoder(
+    (embedding): Embedding(64, 128)
+    (pe): PositionalEncoding()
+    (conv): Conv1d(128, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+    (dropout): Dropout(p=0.25, inplace=False)
+  )
+  (decoder): ConvDecoder(
+    (embedding): Embedding(47, 128)
+    (pe): PositionalEncoding()
+    (conv): Conv1d(128, 512, kernel_size=(3,), stride=(1,), padding=(1,))
+    (attn): ConvAttention()
+    (fc_out): Linear(in_features=512, out_features=47, bias=True)
+    (dropout): Dropout(p=0.25, inplace=False)
+  )
+)
+```
+
 ## FAQs
 
 Q. How to replicate training?
@@ -158,6 +230,7 @@ A. Check out trainig notebooks.
 - [Training Attention Model](./nb_train.ipynb)
 - [Training LSTM Model](./nb_train_lstm.ipynb)
 - [Training Transformer Model](./nb_train_transformer.ipynb)
+- [Training Transformer Model](./nb_train_cnn.ipynb)
 
 Q. How to train on new languages?
 A. Add you parallel data in db and add the location `db_file: db/<db_filename>` in your config yaml file. The format of content is simple `<src_word>\t<target_word>`.

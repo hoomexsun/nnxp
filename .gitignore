@@ -15,7 +15,4 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # User defined files
-exp/xlit_train_cnn_attn_char_ben_mni
 *bkp*
-nb_train_cnn.ipynb
-results.txt

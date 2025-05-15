@@ -1,4 +1,4 @@
-# src/models/cnn_attn.py
+# src/models/cnn.py
 import torch
 import torch.nn as nn
 import math
@@ -16,12 +16,12 @@ class ConvEncoder(nn.Module):
 
     def forward(self, x):
         # x: (B, T)
-        embedded = self.embedding(x)  # (B, T, E)
-        embedded = self.pe(embedded)
+        embedded = self.embedding(x)            # (B, T, E)
+        embedded = self.pe(embedded)            # (B, T, E)
         embedded = self.dropout(embedded)
-        conv_input = embedded.transpose(1, 2)  # (B, E, T)
-        conv_output = self.conv(conv_input).transpose(1, 2)  # (B, T, H)
-        return conv_output  # (B, T, H)
+        conv_input = embedded.transpose(1, 2)   # (B, E, T)
+        conv_output = self.conv(conv_input)     # (B, H, T)
+        return conv_output.transpose(1, 2)      # (B, T, H)
 
 
 class ConvAttention(nn.Module):
@@ -30,10 +30,10 @@ class ConvAttention(nn.Module):
         self.scale = math.sqrt(enc_dim)
 
     def forward(self, query, encoder_outputs):
-        # query: (B, T_dec, D)   encoder_outputs: (B, T_enc, D)
+        # query: (B, T_dec, D), encoder_outputs: (B, T_enc, D)
         scores = torch.bmm(query, encoder_outputs.transpose(1, 2))  # (B, T_dec, T_enc)
         attn_weights = torch.softmax(scores / self.scale, dim=2)
-        context = torch.bmm(attn_weights, encoder_outputs)  # (B, T_dec, D)
+        context = torch.bmm(attn_weights, encoder_outputs)          # (B, T_dec, D)
         return context, attn_weights
 
 
@@ -49,22 +49,22 @@ class ConvDecoder(nn.Module):
 
     def forward(self, tgt, encoder_outputs):
         # tgt: (B, T)
-        embedded = self.embedding(tgt)  # (B, T, E)
+        embedded = self.embedding(tgt)          # (B, T, E)
         embedded = self.pe(embedded)
         embedded = self.dropout(embedded)
-        conv_input = embedded.transpose(1, 2)  # (B, E, T)
-        conv_output = self.conv(conv_input).transpose(1, 2)  # (B, T, 2H)
+        conv_input = embedded.transpose(1, 2)   # (B, E, T)
+        conv_output = self.conv(conv_input)     # (B, 2H, T)
+        conv_output = conv_output.transpose(1, 2)  # (B, T, 2H)
 
-        # Gated Linear Unit
         H = conv_output.size(-1) // 2
-        out, gate = conv_output[:, :, :H], torch.sigmoid(conv_output[:, :, H:])
-        out = out * gate  # (B, T, H)
+        out = conv_output[:, :, :H]
+        gate = torch.sigmoid(conv_output[:, :, H:])
+        out = out * gate                        # (B, T, H)
 
         context, _ = self.attn(out, encoder_outputs)  # (B, T, H)
-        combined = torch.cat([out, context], dim=2)  # (B, T, 2H)
-        output = self.fc_out(combined)  # (B, T, vocab)
+        combined = torch.cat([out, context], dim=2)   # (B, T, 2H)
+        output = self.fc_out(combined)                # (B, T, vocab_size)
         return output
-
 
 class CNNSeq2SeqAttn(XlitModel):
     def __init__(self, model_conf: dict, device: torch.device):
@@ -91,24 +91,25 @@ class CNNSeq2SeqAttn(XlitModel):
         batch_size = x.size(0)
         max_len = max_len or self.max_len
         target_len = y.size(1) if y is not None else max_len
-        y_vocab_size = self.decoder.fc_out.out_features
+        vocab_size = self.decoder.fc_out.out_features
 
         encoder_outputs = self.encoder(x)  # (B, T_src, H)
-        outputs = torch.zeros(batch_size, target_len, y_vocab_size, device=self.device)
+        outputs = torch.zeros(batch_size, target_len, vocab_size, device=self.device)
 
+        # Initialize first decoder input
         inp = (
-            y[:, 0]
-            if y is not None
+            y[:, 0] if y is not None
             else torch.full((batch_size,), self.sos_token, dtype=torch.long, device=self.device)
         )
-        tgt_seq = torch.zeros(batch_size, target_len, dtype=torch.long, device=self.device)
-        tgt_seq[:, 0] = inp
+
+        tgt_tokens = [inp]  # List of tokens to build decoder input
 
         for t in range(1, target_len):
-            decoder_input = tgt_seq[:, :t]  # growing tgt sequence
+            decoder_input = torch.stack(tgt_tokens, dim=1)  # (B, t)
             logits = self.decoder(decoder_input, encoder_outputs)  # (B, t, vocab)
-            output_t = logits[:, -1, :]  # take last time step
+            output_t = logits[:, -1, :]  # (B, vocab)
             outputs[:, t] = output_t
+
             top1 = output_t.argmax(1)
 
             if y is not None:
@@ -117,9 +118,10 @@ class CNNSeq2SeqAttn(XlitModel):
             else:
                 inp = top1
 
-            tgt_seq[:, t] = inp
+            tgt_tokens.append(inp)
 
             if self.eos_token is not None and (inp == self.eos_token).all():
                 break
 
         return outputs
+
